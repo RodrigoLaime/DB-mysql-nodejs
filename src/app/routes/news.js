@@ -14,10 +14,12 @@ module.exports = app => {
 
   app.post('/news', (req, res) => {
     //console.log(req.body)//para poder agregar datos por post
-    const { name, lastName } = req.body;
+    const { name, lastName, adress, phone } = req.body;
     connection.query('INSERT INTO customer SET?', {
       name,
       lastName,
+      adress,
+      phone
     },
       (err, resultado) => {//si tenemso un error lo redireccionamos al home
         res.redirect('/');
